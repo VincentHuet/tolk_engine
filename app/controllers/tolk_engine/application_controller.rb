@@ -18,8 +18,6 @@ module TolkEngine
       end
     end
 
-
-
     protected
     def standard_respond_to(class_type)
       respond_to do |format|

@@ -9,10 +9,9 @@
           %li= msg
   .field
     = f.label :name
-    %br/
     = f.text_field :name
   .field
-    = f.check_box :primary_locale |
-    f.label :primary_locale 
+    = f.check_box :primary_locale
+    = f.label :primary_locale
   .actions
     = f.submit

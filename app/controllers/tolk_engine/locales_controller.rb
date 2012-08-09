@@ -1,8 +1,6 @@
 module TolkEngine
   class LocalesController < ApplicationController
-    # GET /locales
-    # GET /locales.json
-    before_filter :authenticate_translator!
+
     load_and_authorize_resource :locale, :class => TolkEngine::Locale
 
     def index
@@ -22,7 +20,6 @@ module TolkEngine
     # GET /locales/new
     # GET /locales/new.json
     def new
-      @locale = Locale.new
       standard_respond_to(@locale)
     end
 
@@ -33,6 +30,10 @@ module TolkEngine
     # POST /locales
     # POST /locales.json
     def create
+      puts "-"*50
+      puts params.inspect
+      puts "-"*50
+      @locale = Locale.new(params[:locale])
       create_respond_to(@locale)
     end
 

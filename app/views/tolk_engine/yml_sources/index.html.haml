@@ -32,7 +32,7 @@
       %strong Missing translation
     %td.bottom_border
       %strong Status
-    %td.bottom_border
+    %td.bottom_border{:colspan => "2"}
       %strong Option
   - @locales.each do |locale|
     %tr#font-size14
@@ -40,12 +40,10 @@
       %td= @missing_translations_quantity[locale.id]
       %td= primary(locale)
       %td= link_to t('create_yml_file'), locale_yml_files_path(locale), :class => 'btn'
+      %td= link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "btn full-right"
 
-
-/ = current_translator.locale.translations
-- @yml_hash = TolkEngine::TranslationsManager.create_translation_hash(current_translator.locale.translations)
-= "--------------------"*15
-
-= @yml_hash
-%br
-= raw(TolkEngine::TranslationsManager.hash_to_export(@yml_hash, "", "&nbsp", "<br >"))
+/ / = current_translator.locale.translations
+/ - @yml_hash = TolkEngine::TranslationsManager.create_translation_hash(current_translator.locale.translations)
+/ = @yml_hash
+/ %br
+/ = raw(TolkEngine::TranslationsManager.hash_to_export(@yml_hash, "", "&nbsp", "<br >"))

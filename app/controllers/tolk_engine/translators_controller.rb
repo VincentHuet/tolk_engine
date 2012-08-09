@@ -2,6 +2,7 @@ module TolkEngine
   class TranslatorsController < ApplicationController
     # GET /translators
     # GET /translators.json
+     layout "tolk_engine/layouts/tolk_engine"
 
     before_filter :authenticate_translator!
     load_and_authorize_resource :translator, :class => Translator
