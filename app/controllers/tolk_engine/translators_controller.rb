@@ -4,7 +4,7 @@ module TolkEngine
     # GET /translators.json
 
     before_filter :authenticate_translator!
-    load_and_authorize_resource
+    load_and_authorize_resource :translator, :class => Translator
 
     def index
       @locales = Locale.all

@@ -3,7 +3,7 @@ module TolkEngine
     # GET /locales
     # GET /locales.json
     before_filter :authenticate_translator!
-    load_and_authorize_resource
+    load_and_authorize_resource :locale, :class => TolkEngine::Locale
 
     def index
       @missing_translation = {}

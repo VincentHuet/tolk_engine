@@ -4,7 +4,7 @@ module TolkEngine
     # GET /phrases.json
 
     before_filter :authenticate_translator!
-    load_and_authorize_resource
+    load_and_authorize_resource :phrase, :class => TolkEngine::Phrase
 
     def index
       standard_respond_to(@phrase)

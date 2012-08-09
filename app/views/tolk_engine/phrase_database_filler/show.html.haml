@@ -6,8 +6,8 @@
   %strong Path:
   = @yml_source.path
 - if @counter >= 1
-  - Translator.find_each do |translator|
-    - TranslatorMailer.welcome_email(translator).deliver
+  - TolkEngine::Translator.find_each do |translator|
+    - TolkEngine::TranslatorMailer.welcome_email(translator).deliver
 %p
   %strong= pluralize(@counter, 'phrase added', 'phrases added')
 

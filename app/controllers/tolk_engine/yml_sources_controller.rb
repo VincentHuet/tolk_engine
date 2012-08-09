@@ -4,7 +4,7 @@ module TolkEngine
     # GET /yml_sources.json
 
     before_filter :authenticate_translator!
-    load_and_authorize_resource
+    load_and_authorize_resource :yml_source, :class => TolkEngine::YmlSource
 
     def index
       @yml_files = YmlLoader.load_pathes

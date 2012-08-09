@@ -1,10 +1,10 @@
 class RemoveTableFileUpload < ActiveRecord::Migration
   def up
-    drop_table :file_uploads
+    drop_table :tolk_engine_file_uploads
   end
 
   def down
-    create_table :file_uploads do |t|
+    create_table :tolk_engine_file_uploads do |t|
       t.string :name
       t.string :path
 

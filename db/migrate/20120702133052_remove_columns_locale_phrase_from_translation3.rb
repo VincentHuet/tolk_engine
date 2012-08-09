@@ -1,11 +1,11 @@
 class RemoveColumnsLocalePhraseFromTranslation3 < ActiveRecord::Migration
-    def up
-    remove_column :translations, :phrase
-    remove_column :translations, :locale
+  def up
+    remove_column :tolk_engine_translations, :phrase
+    remove_column :tolk_engine_translations, :locale
   end
 
   def down
-    add_column :translations, :phrase
-    add_column :translations, :locale
+    add_column :tolk_engine_translations, :phrase
+    add_column :tolk_engine_translations, :locale
   end
 end

@@ -1,9 +1,9 @@
 class AddColumnAdminToTranslator < ActiveRecord::Migration
   def up
-    add_column :translators, :admin, :boolean
+    add_column :tolk_engine_translators, :admin, :boolean
   end
 
   def down
-    remove_column :translators, :admin, :boolean
+    remove_column :tolk_engine_translators, :admin, :boolean
   end
 end

@@ -1,6 +1,6 @@
 class CreateLocales < ActiveRecord::Migration
   def change
-    create_table :locales do |t|
+    create_table :tolk_engine_locales do |t|
       t.string :name
 
       t.timestamps

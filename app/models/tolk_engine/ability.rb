@@ -15,13 +15,10 @@ module TolkEngine
         can :update, Translation do |translation|
           translation.locale_id == translator.locale_id
         end
-
-
-        can :create, Locale
-        can :destroy, Locale
-
         can :create, :all
       end
+
+      can :manage, Locale
     end
   end
 end

@@ -1,9 +1,9 @@
 class RemoveColumnsPrimaryUpdatedFromTranslation < ActiveRecord::Migration
   def up
-    remove_column :translations, :Primary_updated
+    remove_column :tolk_engine_translations, :Primary_updated
   end
-  
+
   def down
-    add_column :translations, :Primary_updated
+    add_column :tolk_engine_translations, :Primary_updated
   end
 end

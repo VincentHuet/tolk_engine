@@ -11,23 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807171955) do
+ActiveRecord::Schema.define(:version => 20120808093339) do
 
-  create_table "locales", :force => true do |t|
+  create_table "tolk_engine_locales", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.boolean  "primary_locale"
   end
 
-  create_table "phrases", :force => true do |t|
+  create_table "tolk_engine_phrases", :force => true do |t|
     t.string   "key"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "yaml_path"
   end
 
-  create_table "translations", :force => true do |t|
+  create_table "tolk_engine_translations", :force => true do |t|
     t.string   "text"
     t.integer  "translator_id", :limit => 255
     t.integer  "phrase_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120807171955) do
     t.integer  "needed_update"
   end
 
-  create_table "translators", :force => true do |t|
+  create_table "tolk_engine_translators", :force => true do |t|
     t.string   "name"
     t.integer  "locale_id"
     t.string   "password"
@@ -56,16 +56,16 @@ ActiveRecord::Schema.define(:version => 20120807171955) do
     t.boolean  "admin"
   end
 
-  add_index "translators", ["email"], :name => "index_translators_on_email", :unique => true
-  add_index "translators", ["reset_password_token"], :name => "index_translators_on_reset_password_token", :unique => true
+  add_index "tolk_engine_translators", ["email"], :name => "index_tolk_engine_translators_on_email", :unique => true
+  add_index "tolk_engine_translators", ["reset_password_token"], :name => "index_tolk_engine_translators_on_reset_password_token", :unique => true
 
-  create_table "yml_sources", :force => true do |t|
+  create_table "tolk_engine_yml_sources", :force => true do |t|
     t.string   "name"
     t.string   "path"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "yml_sources", ["path"], :name => "index_yml_sources_on_path", :unique => true
+  add_index "tolk_engine_yml_sources", ["path"], :name => "index_tolk_engine_yml_sources_on_path", :unique => true
 
 end

@@ -1,6 +1,6 @@
 class CreateTranslations < ActiveRecord::Migration
   def change
-    create_table :translations do |t|
+    create_table :tolk_engine_translations do |t|
       t.boolean :Primary_updated
       t.string :text
       t.string :previous_text

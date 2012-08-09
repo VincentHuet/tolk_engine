@@ -1,6 +1,6 @@
 class AddDeviseToTranslators < ActiveRecord::Migration
   def self.up
-    change_table(:translators) do |t|
+    change_table(:tolk_engine_translators) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
@@ -38,8 +38,8 @@ class AddDeviseToTranslators < ActiveRecord::Migration
       # t.timestamps
     end
 
-    add_index :translators, :email,                :unique => true
-    add_index :translators, :reset_password_token, :unique => true
+    add_index :tolk_engine_translators, :email,                :unique => true
+    add_index :tolk_engine_translators, :reset_password_token, :unique => true
     # add_index :translators, :confirmation_token,   :unique => true
     # add_index :translators, :unlock_token,         :unique => true
     # add_index :translators, :authentication_token, :unique => true

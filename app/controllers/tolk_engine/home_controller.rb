@@ -6,7 +6,7 @@ module TolkEngine
 
     def index
       if translator_signed_in?
-      	@missing_translation = missing_translation?(current_translator.locale)
+        @missing_translation = missing_translation?(current_translator.locale)
         @ratio = ratio(@missing_translation)
       end
     end

@@ -28,8 +28,13 @@ module TolkEngine
            :recoverable, :rememberable, :trackable, :validatable
 
     # Setup accessible (or protected) attributes for your model
-    attr_accessible :email, :password, :password_confirmation, :remember_me
-    attr_accessible :locale_id, :name, :password
+    attr_accessible :email
+    attr_accessible :password
+    attr_accessible :password_confirmation
+    attr_accessible :remember_me
+    attr_accessible :locale_id
+    attr_accessible :name
+    attr_accessible :admin
 
     has_many :translations
     belongs_to :locale, :dependent => :destroy

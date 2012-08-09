@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.elastic.source
 //= require twitter/bootstrap
 //= require_tree .

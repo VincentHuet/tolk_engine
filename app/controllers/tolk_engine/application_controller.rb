@@ -3,6 +3,8 @@ module TolkEngine
     protect_from_forgery
     before_filter :initialize_locales_name
 
+    layout "tolk_engine/layouts/tolk_engine"
+
     def current_ability
       @current_ability ||= Ability.new(current_translator)
     end
@@ -124,13 +126,17 @@ module TolkEngine
     end
 
     def missing_translation?(locale)
-      current_done_translation = locale.translations.where(:needed_update => 0).count
-      phrase_quantity - current_done_translation
+      if !locale.nil?
+        current_done_translation = locale.translations.where(:needed_update => 0).count
+        phrase_quantity - current_done_translation
+      else
+        1
+      end
     end
 
     def phrase_quantity
       reference_locale = Locale.primary_locale
-      primary_keyword_quantity = reference_locale.translations.count
+      reference_locale.nil? ? 0 : reference_locale.translations.count
     end
 
   end

@@ -1,17 +1,21 @@
 module TolkEngine
   class TranslationsController < ApplicationController
+
     # GET /translations
     # GET /translations.json
     before_filter :authenticate_translator!
-    load_and_authorize_resource
+    load_and_authorize_resource :translation, :class => TolkEngine::Translation
 
     def index
       @locale = Locale.find_by_id(params[:locale_id])
       if @locale
-        @translations = @locale.translations.order('text')
+        @translations = @locale.translations
       else
-        @translations = Translation.all.order('text')
+        @translations = Translation.all
       end
+
+      # @translations = @translations.order('text') if !@translations.empty?
+
       if !Translation.all.empty?
         @latest_translation_load_date = Translation.maximum("created_at").to_date
       end

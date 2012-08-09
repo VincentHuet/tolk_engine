@@ -1,7 +1,7 @@
 module TolkEngine
   class TranslationsInLineController < ApplicationController
     before_filter :authenticate_translator!
-    load_and_authorize_resource :translation
+    load_and_authorize_resource :translation, :class => TolkEngine::Translation
 
     def index
       @locale = current_translator.locale
