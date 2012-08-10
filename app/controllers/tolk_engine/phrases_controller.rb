@@ -2,7 +2,7 @@ module TolkEngine
   class PhrasesController < ApplicationController
     # GET /phrases
     # GET /phrases.json
-
+    layout "tolk_engine/layouts/tolk_engine"
     before_filter :authenticate_translator!
     load_and_authorize_resource :phrase, :class => TolkEngine::Phrase
 

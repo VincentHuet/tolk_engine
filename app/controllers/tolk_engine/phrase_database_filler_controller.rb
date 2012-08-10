@@ -1,6 +1,6 @@
 module TolkEngine
   class PhraseDatabaseFillerController < ApplicationController
-
+     layout "tolk_engine/layouts/tolk_engine"
     def show
       @yml_source = YmlSource.find(params[:id])
 

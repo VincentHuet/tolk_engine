@@ -1,6 +1,7 @@
 TolkEngine::Engine.routes.draw do
 
-  devise_for :translators, :controllers => { :registrations => 'tolk_engine/custom_devise/registrations' }, :class_name => 'TolkEngine::Translator', :module => :devise
+  devise_for :translators, :controllers => { :registrations => 'tolk_engine/custom_devise/registrations', :sessions => 'tolk_engine/custom_devise/sessions'  }, :class_name => 'TolkEngine::Translator', :module => :devise
+
   resources :translators
   resources :yml_sources
   resources :phrase_database_filler, :only => [:show, :index]

@@ -4,9 +4,11 @@ module TolkEngine
 
     require 'yaml'
 
+     layout "tolk_engine/layouts/tolk_engine"
+
     def index
       if translator_signed_in?
-        @missing_translation = missing_translation?(current_translator.locale)
+        @missing_translation = missing_translation?(Locale.find(current_translator.locale.id))
         @ratio = ratio(@missing_translation)
       end
     end
