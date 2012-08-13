@@ -2,48 +2,45 @@
   %h1
     %i.icon-bookmark
       = raw("&nbsp;")
-      = t("listing_yml_sources")
-      .pull-right
-        = link_to 'load all in DB', phrase_database_filler_index_path, :class => "btn"
-%table
-  %tr#font-size16
-    %td.bottom_border#name
-      %strong Name
-    %td.bottom_border
-      %strong Path
-    %td.bottom_border
-      %strong Loadind Button
-  %tr#font-size14
-    %td
-  - @yml_sources.each do |yml_source|
-    %tr#font-size14
-      %td= yml_source.name
-      %td= yml_source.path
-      %td= link_to 'load in DB', phrase_database_filler_path(yml_source), :class => "btn"
+      YML sources list
+    .pull-right
+      = link_to 'Load all files in DB', phrase_database_filler_index_path, :class => "btn btn-info grey"
+.row
+  .span10.offset1
+    %table.table.table-striped.table.table-condensed
+      %tr
+        %th
+          Name
+        %th
+          Path
+        %th
+          Loadind Button
+      - @yml_sources.each do |yml_source|
+        %tr
+          %td= yml_source.name
+          %td= yml_source.path
+          %td= link_to 'Load in DB', phrase_database_filler_path(yml_source), :class => "btn btn-info grey"
 %h1
   %i.icon-plane
     = raw("&nbsp;")
-    = t("locales")
-%table
-  %tr#font-size16
-    %td.bottom_border
-      %strong Locale
-    %td.bottom_border
-      %strong Missing translation
-    %td.bottom_border
-      %strong Status
-    %td.bottom_border{:colspan => "2"}
-      %strong Option
-  - @locales.each do |locale|
-    %tr#font-size14
-      %td= link_to locale.name, locale_translations_path(locale)
-      %td= @missing_translations_quantity[locale.id]
-      %td= primary(locale)
-      %td= link_to t('create_yml_file'), locale_yml_files_path(locale), :class => 'btn'
-      %td= link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "btn full-right"
-
-/ / = current_translator.locale.translations
-/ - @yml_hash = TolkEngine::TranslationsManager.create_translation_hash(current_translator.locale.translations)
-/ = @yml_hash
-/ %br
-/ = raw(TolkEngine::TranslationsManager.hash_to_export(@yml_hash, "", "&nbsp", "<br >"))
+    Locales
+.row
+  .span10.offset1
+    %table.table-striped.table-condensed
+      %tr
+        %td#span100
+          %strong Locale
+        %td
+          %strong Missing translation
+        %td
+          %strong Status
+        %td
+          %strong Option
+      - @locales.each do |locale|
+        %tr
+          %td#span100= link_to locale.name, locale_translations_path(locale)
+          %td= @missing_translations_quantity[locale.id]
+          %td= primary(locale)
+          %td
+            = link_to "Create YAML file", locale_yml_files_path(locale), :class => 'btn btn-info grey'
+            = link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "btn btn-warning grey"

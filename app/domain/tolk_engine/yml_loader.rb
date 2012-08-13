@@ -10,7 +10,7 @@ module TolkEngine
         file_path = file.sub!(/config\/locales\//,"").to_s
         file_name = file.to_s
         new_yml_source.path = file_path
-        new_yml_source.name = file_name.sub(/\/en.yml/,"").sub(/\./,"").sub(/[\/]/,"_")
+        new_yml_source.name = file_name.sub(/\/en.yml/,"").sub(/\.yml/,"").sub(/[\/]/,"_")
         new_yml_source.save if YmlSource.find_by_path(file).nil?
       end
     end

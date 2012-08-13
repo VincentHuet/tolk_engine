@@ -4,6 +4,10 @@
   border-bottom: 2px solid #999;
 }
 
+img {
+  max-width: 610px;
+}
+
 .home {
   margin-left: 200px;
 }
@@ -18,6 +22,7 @@
 
 .hero-unit {
   padding-top: 10px;
+  min-height: 100%
 }
 
 .hero-unit h1 {
@@ -31,8 +36,13 @@
 }
 
 .hero-unit img {
-  float: left;
-  margin-left: -50px;
+  float: none;
+}
+
+.floating-btn {
+  float: none;
+  margin: 20px 200px;
+  width: 200px;
 }
 
 .hero-unit table {
@@ -91,14 +101,17 @@
 }
 
 #home {
+  width: 600px;
+  margin: 5px;
+  float: none;
   font-size: 26px;
   color: #545454;
   line-height: 26px;
-  text-align: center;
   -webkit-text-shadow: 1px 1px 1px #A19191;
   -moz-text-shadow: 1px 1px 1px #A19191;
   text-shadow: 1px 1px 1px #A19191;
   h1 {
+    text-align: center;
     font-size: 36px;
     -webkit-text-shadow: 2px 2px 2px #A19191;
     -moz-text-shadow: 2px 2px 2px #A19191;
@@ -124,7 +137,12 @@
 }
 
 .center {
+  font-style: italic;
+  vertical-align: middle;
   text-align: center;
+  img {
+    margin: 20px;
+  }
 }
 
 #white-border {
@@ -166,6 +184,10 @@
 
 .offset40 {
   margin-left: 40px;
+}
+
+#span100 {
+  width: 100px;
 }
 
 .span3-5 {
@@ -292,4 +314,28 @@ textarea{
     -moz-border-radius: 5px;
     border-radius: 5px;
   }
+}
+
+#custom_footer {
+  float: right;
+  margin-right: 50px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.alert .close {
+  right: 0px;
+}
+
+.hero-unit table{
+  font-size: 13px;
+  margin-left: 0px;
+}
+
+.grey {
+  color: lighten(black, 90);
+  font-style: italic;
+  font-size: 13px;
 }

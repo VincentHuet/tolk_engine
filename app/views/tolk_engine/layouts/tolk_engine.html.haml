@@ -18,17 +18,17 @@
                 %li
                   = link_to locale_translations_path(current_translator.locale) do
                     %i.icon-book
-                    = t("translation_resume")
+                    Translation summary
                 - if current_translator.locale.is_primary?
                   %li
                     = link_to yml_sources_path do
                       %i.icon-bookmark
-                      = t("yml_source")
+                      YAML Sources
                 - else
                   %li
                     = link_to translations_in_line_index_path do
                       %i.icon-pencil
-                      = t("traduction_in_line")
+                      Translation tool
 
             %ul.nav.pull-right
               - if translator_signed_in?
@@ -39,21 +39,29 @@
                 %li
                   = link_to destroy_translator_session_path, :method => :delete do
                     %i.icon-eject
-                    = t("logout")
+                    Logout
               - else
                 %li
                   = link_to new_translator_session_path do
                     %i.icon-lock
-                    = t("login")
+                    Logout
                 %li
                   = link_to new_translator_registration_path do
                     %i.icon-plus-sign
-                    = t("sign_up")
+                    Sign Up
               %li
                 = link_to request.fullpath do
                   %i.icon-refresh
-                  = t("refresh")
+                  Refresh
     .container
-      = render 'tolk_engine/layouts/flash_msg', :flash => flash
-      .hero-unit
-        = yield
+      .row
+        .span12
+          .row
+            .span4.offset4
+              = render 'tolk_engine/layouts/flash_msg', :flash => flash
+          .row
+            .span12
+              .hero-unit
+                = yield
+            .footer#custom_footer
+              » @ Vincent Huet - Djengo «

@@ -1,6 +1,6 @@
 .page-header
   .alert.alert-grey
-    %h1#home= t("translations_in_line")
+    %h1#home Translations in line
 
 -if !@translations.empty?
   = form_tag translations_in_line_index_path, :method => :put do
@@ -8,9 +8,9 @@
       %thead
         %tr
           %th
-          %th.important-title#fat-path= t("translation")
-          %th.important-title#fat-path= t("required_since")
-          %th.important-title#fat-path= t("translation_input")
+          %th.important-title#fat-path Translation
+          %th.important-title#fat-path Required since
+          %th.important-title#fat-path Translation input
       %tbody
         - for translation in @translations
           = fields_for "translations[]", translation do |f|
